@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="flex justify-center flex-col">
+        <!-- <div class="mx-auto">
+            <lottie-player src="./assets/json/lotti_file.json" background="transparent" speed="1"
+                style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+        </div> -->
+        <form id="form" class="flex flex-col gap-3 mx-auto mt-12">
+            <input required id="name" type="text" class="border border-black p-2 outline-none rounded-lg"
+                placeholder="Name">
+            <input required id="email" type="email" class="border border-black p-2 outline-none rounded-lg"
+                placeholder="E-mail">
+            <input required id="number" type="number" class="border border-black p-2 outline-none rounded-lg"
+                placeholder="Ph.No.">
+            <input required id="password" type="password" class="border border-black p-2 outline-none rounded-lg"
+                placeholder="Password">
+            <button type="submit" class="bg-green-500 py-3 px-8 text-white rounded-lg">Submit</button>
+        </form>
+
+    </div>
+    <script>
+        let name = document.getElementById("name");
+        let email = document.getElementById("email");
+        let number = document.getElementById("number");
+        let password = document.getElementById("password");
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            if (
+                name.value !== "" &&
+                email.value !== "" &&
+                number.value !== "" &&
+                password.value !== ""
+            ) {
+                console.log(`My name is ${document.getElementById("name").value}`);
+                console.log(`My email is ${document.getElementById("email").value}`);
+                console.log(`My number is ${document.getElementById("number").value}`);
+                console.log(`My password is ${document.getElementById("password").value}`);
+                name.value = "";
+                email.value = "";
+                number.value = "";
+                password.value = "";
+            }
+        });
+    </script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</body>
+
+</html>
