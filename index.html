@@ -11,9 +11,6 @@
 </head>
 
 <body>
-    <button id="theme-toggle"
-        class="text-colorbg bg-black text-lg text-white block mt-20 p-4 rounded-full w-56 text-medium font-sans">Toggle
-        Theme</button>
     <div class=" flex justify-center flex-col">
         <form id="form" class="flex mx-auto flex-col gap-3">
             <input id="name" type="text" class="border border-black p-2 outline-none rounded-lg" placeholder="Name">
@@ -72,26 +69,6 @@
             }
 
         })
-    </script>
-    <script>
-        document.getElementById("theme-toggle").addEventListener("click", function () {
-            const currentTheme = document.documentElement.getAttribute("data-theme");
-            const themeToggleButton = document.getElementById('theme-toggle');
-
-            if (currentTheme === "") {
-                document.documentElement.setAttribute("data-theme", "dark");
-                themeToggleButton.textContent = 'Toggle Theme (Dark)';
-            } else if (currentTheme === "dark") {
-                document.documentElement.setAttribute("data-theme", "orange");
-                themeToggleButton.textContent = 'Toggle Theme (Orange)';
-            } else if (currentTheme === "orange") {
-                document.documentElement.setAttribute("data-theme", "blue");
-                themeToggleButton.textContent = 'Toggle Theme (Blue)';
-            } else if (currentTheme === "blue") {
-                document.documentElement.setAttribute("data-theme", "");
-                themeToggleButton.textContent = 'Toggle Theme ';
-            }
-        });
     </script>
 </body>
 
