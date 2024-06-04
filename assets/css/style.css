@@ -2,3 +2,16 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
+
+:root {
+  --background: #fff;
+  --content: #000;
+}
+:root[data-theme="dark"] {
+  --background: #000;
+  --content: #fff;
+}
+:root[data-theme="orange"] {
+  --background: #f00;
+  --content: #fff;
+}

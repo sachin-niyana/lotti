@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html data-theme="" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Theme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "colorbg": "var(--background)",
+                        "content": "var(--content)",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --background: #fff;
+            --content: #000;
+        }
+
+        :root[data-theme="dark"] {
+            --background: #000;
+            --content: #fff;
+        }
+
+        :root[data-theme="orange"] {
+            --background: #f00;
+            --content: #fff;
+        }
+
+        :root[data-theme="blue"] {
+            --background: #00f;
+            --content: #fff;
+        }
+
+        body {
+            transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out !important;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="min-h-screen flex flex-col items-center justify-center bg-colorbg">
+        <h1 class="text-center text-content text-5xl font-bold block">Multiple Theme</h1>
+        <button id="theme-toggle"
+            class="text-colorbg bg-content text-lg block mt-20 p-4 rounded-full w-56 text-medium font-sans">Toggle
+            Theme</button>
+    </section>
+    <script>
+        document.getElementById("theme-toggle").addEventListener("click", function () {
+            const currentTheme = document.documentElement.getAttribute("data-theme");
+            const themeToggleButton = document.getElementById('theme-toggle');
+
+            if (currentTheme === "") {
+                document.documentElement.setAttribute("data-theme", "dark");
+                themeToggleButton.textContent = 'Toggle Theme (Dark)';
+            } else if (currentTheme === "dark") {
+                document.documentElement.setAttribute("data-theme", "orange");
+                themeToggleButton.textContent = 'Toggle Theme (Orange)';
+            } else if (currentTheme === "orange") {
+                document.documentElement.setAttribute("data-theme", "blue");
+                themeToggleButton.textContent = 'Toggle Theme (Blue)';
+            } else if (currentTheme === "blue") {
+                document.documentElement.setAttribute("data-theme", "");
+                themeToggleButton.textContent = 'Toggle Theme (Dark)';
+            }
+        });
+    </script>
+</body>
+
+</html>
